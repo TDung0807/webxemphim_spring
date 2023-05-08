@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{../css/styleadmin.css}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+      integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="../homepage.css" />
+  </head>
+  <body>
+    <!-- SideBar -->
+
+    <div class="body-container">
+      <div class="header-container">
+        <div class="title-place">
+          <h1 class="title-heading">Chi tiết phim</h1>
+          
+        </div>
+     
+      </div>
+      <div class="divider-container">
+        <div class="function_place">
+            
+            <button class="btn-main content-type-normal" ><a href="" style="color: white;">Xóa phim</a></button>
+            <button class="btn-main content-type-normal" data-bs-toggle="modal"
+            data-bs-target="#EditFilm">Sửa phim</button>
+        </div>
+         
+      
+        </div>
+ 
+
+      <div class="data-heading">
+        <div class="choosing-block">  
+        </div>
+      </div>
+    
+      <div class="datagrid-place">
+<div class="container-fluid">
+
+<div class="row gy-4 gx-5 p-2"> 
+      
+        <div class="col-4">  <span class="form-title"> Avatar</span> 
+            <br>
+            <button type="button" class="btn btn-dark m" data-bs-toggle="modal" data-bs-target="#avatar">
+                Xem
+            </button> 
+            <div class="modal fade" id="avatar" tabindex="-1" aria-labelledby="avatarLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-body d-flex justify-content-center">
+                       
+                            <div class="col-12">
+                                <span class="form-title"> Avatar</span>
+                                <input
+                                  type="file"
+                                  name="Language"
+                                  class="form-control" 
+                                  aria-label="Poster Link"
+                                  aria-describedby="addon-wrapping"/>
+                              </div>
+                             
+                        </div>
+                     <div class="row">
+                        <div class="col-4 ">
+                        </div>
+                        <div class="col-4 ">
+                            <input type="button"  value="Xác nhận" class="form-control">
+                        </div>
+                       
+                     </div>
+                  </div>
+                </div>
+            </div>
+     </div>
+       <div class="col-7 border-2"> 
+        <img style="height: 250px; width: 200px;" src="https://64.media.tumblr.com/e2081391829585b12cc8304bcf4dff31/e07ef44db91309b5-b9/s1280x1920/578f6a3054374b158c3bd6ac74bedfeabafd3b96.jpg" class="img-rounded" alt="Cinque Terre">
+
+    </div>
+    <div class="col-5">
+        <span class="form-title"> Mã phim </span>
+        <p class="text-white">1</p>
+    </div>
+    <div class="col-5 ">
+        <span class="form-title"> Tên phim</span>
+        <p class="text-white">1</p>
+
+    </div>
+    <div class="col-5">
+        <span class="form-title"> Poster</span>
+        <!-- Button trigger modal -->
+    <button type="button" class="btn btn-dark m" data-bs-toggle="modal" data-bs-target="#poster">
+        Xem
+    </button>
+    
+    <button type="button" class="btn btn-dark m" data-bs-toggle="modal" data-bs-target="#posterchange">
+        Sửa
+    </button>
+    <div class="modal fade" id="posterchange" tabindex="-1" aria-labelledby="avatarLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body d-flex justify-content-center">
+               
+                    <div class="col-12">
+                        <span class="form-title"> Avatar</span>
+                        <input
+                          type="file"
+                          name="Language"
+                          class="form-control" 
+                          aria-label="Poster Link"
+                          aria-describedby="addon-wrapping"/>
+                      </div>
+                     
+                </div>
+             <div class="row">
+                <div class="col-4 ">
+                </div>
+                <div class="col-4 ">
+                    <input type="button"  value="Xác nhận" class="form-control">
+                </div>
+               
+             </div>
+          </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="poster" tabindex="-1" aria-labelledby="posterLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-body d-flex justify-content-center">
+              <img  src="https://64.media.tumblr.com/a5bfe552de953fc66a964b84efd160a3/4c508677959fdec3-91/s1280x1920/4d144b48ded0b9d259df7f08bfb37a13152115a6.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+    <div class="col-5">
+        <span class="form-title"> Trạng thái</span>
+        <p class="text-white">1</p>
+
+    </div>
+    <div class="col-5">
+        <span class="form-title"> Thể loại</span> <br>
+     
+    <div class="row" style="color: white;">
+        <div class="col-md-6">
+          <h3>Thể loại của phim</h3>
+          <ul id="genre-list">
+            <li>Thể loại 1 <button class="btn btn-sm btn-danger delete-genre m-1" data-id="1">&times;</button></li>
+            <li>Thể loại 2 <button class="btn btn-sm btn-danger delete-genre m-1" data-id="2">&times;</button></li>
+            <li>Thể loại 3 <button class="btn btn-sm btn-danger delete-genre m-1" data-id="3">&times;</button></li>
+          </ul>
+          <button type="button" class="btn btn-dark m" data-bs-toggle="modal" data-bs-target="#genre">
+              Thêm
+          </button>
+          <button type="button" class="btn btn-dark m" >
+            Xác nhận thêm
+        </button>
+        </div>
+      </div>
+    
+    
+    <div class="modal fade" id="genre" tabindex="-1" aria-labelledby="genre" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content"  style="color: white;">
+          <div class="modal-header">
+            <h5 class="modal-title" id="genreModal">Thêm thể loại</h5>
+            
+          </div>
+          <div class="modal-body"  style="color: white;">
+            <h6>Chọn thể loại:</h6>
+            <ul id="add-genre-list">
+              <li>Thể loại 1 <input type="checkbox" name="genre[]" value="1" class="add-genre"></li>
+              <li>Thể loại 2 <input type="checkbox" name="genre[]" value="2" class="add-genre"></li>
+              <li>Thể loại 3 <input type="checkbox" name="genre[]" value="3" class="add-genre"></li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary save-genre">Lưu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+     
+    </div>
+    <div class="col-5">
+        <span class="form-title"> Diễn viên</span>
+        <br>
+        <div class="row" style="color: white;">
+            <div class="col-md-6">
+              <h3>Danh sách Diễn Viên</h3>
+              <ul id="actor-list">
+                <li>Thể loại 1 <button class="btn btn-sm btn-danger delete-genre m-1" data-id="1">&times;</button></li>
+                <li>Thể loại 2 <button class="btn btn-sm btn-danger delete-genre m-1" data-id="2">&times;</button></li>
+                <li>Thể loại 3 <button class="btn btn-sm btn-danger delete-genre m-1" data-id="3">&times;</button></li>
+              </ul>
+              <button type="button" class="btn btn-dark m" data-bs-toggle="modal" data-bs-target="#actor">
+                  Thêm Diễn Viên
+              </button>
+              <button type="button" class="btn btn-dark m" >
+                Xác nhận
+            </button>
+            <div class="modal fade" id="actor" tabindex="-1" aria-labelledby="actor" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content"  style="color: white;">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="actorModal"> Thêm Diễn Viên</h5>
+                      
+                    </div>
+                    <div class="modal-body"  style="color: white;">
+                        <select id="add-actor-list" class="form-select form-select-sm" multiple data-live-search="true">
+                            <option value="1">Thể loại 1</option>
+                            <option value="2">Thể loại 2</option>
+                            <option value="3">Thể loại 3</option>
+                          </select>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                      <button type="button" class="btn btn-primary save-actor">Lưu</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+    </div>
+    <div class="col-5">
+        <span class="form-title">Thời lượng</span>
+        <p class="text-white">1</p>
+
+    </div>
+    <div class="col-5">
+        <span class="form-title"> Số tập</span>
+        <p class="text-white">1</p>
+
+    </div>
+    <div class="col-5">
+        <span class="form-title"> Trailer</span>
+                <!-- Button trigger modal -->
+    <button type="button" class="btn btn-dark m" data-bs-toggle="modal" data-bs-target="#trailer">
+        Xem
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="trailer" tabindex="-1" aria-labelledby="trailerLabel" aria-hidden="true">
+        <div class="modal-dialog justify-content-left align-items-center modal-xl">
+          <div class="modal-content  d-flex justify-content-center">
+            <div class="modal-body text-center">
+              <iframe width="1000" height="500" src="https://www.youtube.com/embed/6FDueez9z3g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-5">
+        <span class="form-title"> Năm phát hành</span>
+        <p class="text-white">1</p>
+
+    </div>
+    <div class="col-5">
+        <span class="form-title"> Ngôn ngữ</span>
+        <p class="text-white">1</p>
+
+    </div>
+    
+    <div class="col-5">
+        <span class="form-title"> Quốc gia</span>
+        <p class="text-white">1</p>
+
+    </div>
+    <div class="col-5">
+        <span class="form-title"> Số lượt xem</span>
+        <p class="text-white">1</p>
+
+    </div>
+    <div class="col-5">
+        <span class="form-title"> Mô tả</span>
+        <p class="text-white">1</p>
+
+    </div>
+</div>   
+</div>
+ 
+    </div>
+    <div class="datagrid-place">
+        <div class="header-container">
+            <div class="title-place">
+              <h1 class="title-heading">Danh sách tập</h1>
+            </div>
+            <div class="function_place">
+            
+                <button class="btn-main content-type-normal" data-bs-toggle="modal"
+                data-bs-target="#addTap">+ Thêm Tập</button>
+              </div>
+          </div>
+        <table
+          id="table-content"
+          class="table table-striped table-place"
+          style="width: 100%"
+        >
+          <thead>
+            <tr>
+              <th>Mã Tập</th>
+              <th>Tên Tập</th>
+              <th>Tập số</th>
+              <th>Mô tả</th>
+              <th>Xem</th>
+              
+              <th>Xem chi tiết</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td>Mã Tập</td>
+                <td>Tên Tập</td>
+                <td>Tập số</td>
+                <td>Mô tả</td>
+                <td>
+                    <button type="button" class="btn btn-dark m" data-bs-toggle="modal" data-bs-target="#trailer">
+                        Xem
+                    </button> 
+                <div class="modal fade" id="poster" tabindex="-1" aria-labelledby="posterLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                      <div class="modal-content">
+                        <div class="modal-body d-flex justify-content-center">
+                          <img width="1000" height="500" src="https://phatgiaobaclieu.com/wp-content/uploads/2022/04/7105e03f52c89c96c5d913-1536x919.jpg" alt="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>Sửa/Xóa</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+        <div class="sidebar-container" th:replace="fragments/sidebar :: sidebar">
+
+        </div>
+    <!-- Modal -->
+    <div
+    class="modal fade"
+    id="EditFilm"
+    tabindex="-1"
+    aria-labelledby="EditFilmLable"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content p-3">
+        <div class="modal-body">
+          <div class="input-group flex-nowrap">
+            <div class="container-fluid">
+              <form action="">
+              <div class="row gy-4 gx-5">
+          
+                <div class="col-6">
+                  <span class="form-title"> Tên phim</span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Time" name = "name"
+                    aria-describedby="addon-wrapping"
+                    id="time"
+                  />
+                </div>
+
+                <div class="col-6">
+                  <span class="form-title"> Đạo diễn </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="ID_Film" name = "director"
+                    aria-describedby="addon-wrapping"
+                  />
+                </div>
+                <div class="col-6">
+                  <span class="form-title">Trạng thái </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Language" name="status"
+                    aria-describedby="addon-wrapping"
+                  />
+                </div>
+                
+                <div class="col-6">
+                  <span class="form-title"> Ngôn ngữ</span>
+                  <input
+                    type="text"
+                    name="Language"
+                    class="form-control" 
+                    aria-label="Poster Link"
+                    aria-describedby="addon-wrapping"
+                  />
+                </div>
+                <div class="col-6">
+                  <span class="form-title"> Số tập</span>
+                  <input
+                    type="number"
+                    class="form-control"
+                  name="number"
+                    aria-label="Producer_name"
+                    aria-describedby="addon-wrapping"
+                  />
+                </div>
+           
+                <div class="col-6">
+                  <span class="form-title ou"> Quốc gia</span>
+                 <Select name="country" class="form-select form-control text-white btn-outline-dark border-radius: 4px " style=" background-color: black;">
+                  <Option value="1">Việt Nam</Option>
+                  <Option  value="2">Việt Nam</Option>
+                 </Select>
+                </div>
+                
+          
+          
+                <div class="col-6">
+                  <span class="form-title"> Mô tả </span>
+                  <input
+                    type="textarea"
+                    class="form-control form-dark" style="background-color: dark;"
+                    aria-label="Description"
+                    aria-describedby="addon-wrapping"
+                  />
+                </div>
+                <div class="col-6">
+                  <span class="form-title">Năm </span>
+                  <input
+                    type="date"
+                    class="form-control"
+                    aria-label="datefilm"
+                    aria-describedby="addon-wrapping"
+                  />
+                </div>
+                <div class="col-6">
+                  <span class="form-title"> Link Trailer </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Trailer_Link"
+                    aria-describedby="addon-wrapping"
+                  />
+                </div>
+
+                <div class="col-6"></div>
+              </div>
+            </form>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4"></div>
+            <div
+              class="col-4"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <button
+                type="button"
+                class="btn mt-2 text-white btn-primary"
+                id="btn_EditUser"
+                style="border-radius: 10px"
+              >
+                Thêm phim
+              </button>
+            </div>
+            <div class="col-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div
+      class="modal fade"
+      id="addTap"
+      tabindex="-1"
+      aria-labelledby="addTapLable"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content p-3">
+          <div class="modal-body">
+            <div class="input-group flex-nowrap">
+              <div class="container-fluid">
+                <form action="">
+                <div class="row gy-4 gx-5">
+           
+                  <div class="col-6">
+                    <span class="form-title"> Tên Tập</span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Time" name = "name"
+                      aria-describedby="addon-wrapping"
+                      id="time"
+                    />
+                  </div>
+
+                  <div class="col-6">
+                    <span class="form-title"> Tập số </span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="ID_Film" name = "director"
+                      aria-describedby="addon-wrapping"
+                    />
+                  </div>
+
+                  <div class="col-6">
+                    <span class="form-title"> URL </span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="ID_Film" name = "director"
+                      aria-describedby="addon-wrapping"
+                    />
+                  </div>
+                  <div class="col-6"></div>
+                </div>
+              </form>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4"></div>
+              <div
+                class="col-4"
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <button
+                  type="button"
+                  class="btn mt-2 text-white btn-primary"
+                  id="btn_EditUser"
+                  style="border-radius: 10px"
+                >
+                  Thêm tập
+                </button>
+              </div>
+              <div class="col-4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+   
+  </body>
+  <script>
+    $(document).ready(function() {
+     var genresfull = ["Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mystery", "Romance", "Sci-Fi", "Thriller"];
+     var genres = ["Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror"];
+     var genreList = $("#genre-list");
+   
+     function displayGenres() {
+       genreList.empty();
+   
+       for (var i = 0; i < genres.length; i++) {
+         var genre = genres[i];
+         var item = $("<li>", {
+           text: genre,
+           "data-genre": genre,
+           class: "genre-item"
+         }).appendTo(genreList);
+   
+         var deleteButton = $("<button>", {
+           html: "&times;",
+           "data-genre": genre,
+           class: "btn btn-sm btn-danger delete-genre m-1"
+         }).appendTo(item);
+   
+         deleteButton.click(function() {
+           var genreToRemove = $(this).data("genre");
+           genres = genres.filter(function(genre) {
+             return genre !== genreToRemove;
+           });
+           displayGenres();
+         });
+       }
+       // Generate the list of available genres
+       var genreListHtml = "";
+       for (var i = 0; i < genresfull.length; i++) {
+         if (!genres.includes(genresfull[i])) {
+           genreListHtml += "<li>" + genresfull[i] + "<input type='checkbox' name='genre[]' value=" + genresfull[i] +" class='add-genre'></li>";
+         }
+       }
+       $("#add-genre-list").html(genreListHtml);
+     }
+     displayGenres();
+     $(".save-genre").click(function() {
+       var checkboxes = document.querySelectorAll(".add-genre");
+       for (var i = 0; i < checkboxes.length; i++) {
+         if (checkboxes[i].checked) {
+           genres.push(checkboxes[i].value);
+         }
+       }
+       $("#genre").modal("hide");
+       displayGenres();
+     });
+   
+     $(".btn-secondary").click(function() {
+       $("#genre").modal("hide");
+     });
+    var actorsfull = ["Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mystery", "Romance", "Sci-Fi", "Thriller"];
+var actors = ["Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror"];
+var actorList = $("#actor-list");
+
+function displayActors() {
+  actorList.empty();
+
+  for (var i = 0; i < actors.length; i++) {
+    var actor = actors[i];
+    var item = $("<li>", {
+      text: actor,
+      "data-actor": actor,
+      class: "actor-item"
+    }).appendTo(actorList);
+
+    var deleteButton = $("<button>", {
+      html: "&times;",
+      "data-actor": actor,
+      class: "btn btn-sm btn-danger delete-actor m-1"
+    }).appendTo(item);
+
+    deleteButton.click(function() {
+      var actorToRemove = $(this).data("actor");
+      actors = actors.filter(function(actor) {
+        return actor !== actorToRemove;
+      });
+      displayActors();
+    });
+  }
+
+  // Generate the list of available actors
+  var actorListHtml = "";
+  for (var i = 0; i < actorsfull.length; i++) {
+    if (!actors.includes(actorsfull[i])) {
+      actorListHtml += "<option value='" + actorsfull[i] + "'>" + actorsfull[i] + "</option>";
+    }
+  }
+  $("#add-actor-list").html(actorListHtml);
+}
+
+displayActors();
+
+$(".save-actor").click(function() {
+  var selectedActors = $("#add-actor-list").val();
+  if (selectedActors) {
+    actors = actors.concat(selectedActors);
+  }
+  $("#actor").modal("hide");
+  displayActors();
+});
+
+$(".btn-secondary").click(function() {
+  $("#actor").modal("hide");
+});
+
+$(".btn-primary").click(function() {
+  // do something with selected actors
+  console.log(actors);
+});
+
+   
+   });
+   
+   </script>
+</html>

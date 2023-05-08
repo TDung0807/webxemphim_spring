@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" th:href="@{../css/styleadmin.css}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+      integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="homepage.css" />
+  </head>
+  <body>
+    <!-- SideBar -->
+
+    <div class="body-container">
+      <div class="header-container">
+        <div class="title-place">
+          <h1 class="title-heading">Danh sách studio</h1>
+        </div>
+        <div class="function_place">
+        
+          <button class="btn-main content-type-normal" data-bs-toggle="modal"
+          data-bs-target="#ModalAddUser">+ Thêm Studio</button>
+        </div>
+      </div>
+      <div class="divider-container"></div>
+      <div class="search-place">
+        <div class="input-group rounded input-place" style="margin-bottom: 0;">
+          <input
+            type="search"
+            id="search-input"
+            class="form-control rounded"
+            placeholder="Search"
+            aria-label="Search"
+            aria-describedby="search-addon"
+          />
+        </div>
+     
+  
+     
+     
+        <button id="search-button" class="btn-main content-type-normal">Tìm kiếm</button>
+      </div>
+      <div class="divider-container"></div>
+      <div class="transition-place">
+        <div class="item-choosing-block">
+          <p class="all-film" style="margin-bottom: 12px!important">Tất cả Studio</p>
+          <div class="divider-mini"></div>
+        </div>
+      </div>
+      <div class="divider-container"></div>
+      <div class="data-heading">
+        <div class="choosing-block">  
+        </div>
+      </div>
+    
+      <div class="datagrid-place">
+        <table
+          id="table-content"
+          class="table table-striped table-place"
+          style="width: 100%"
+        >
+          <thead>
+            <tr>
+              <th>Mã Studio</th>
+              <th>Tên Studio</th>
+              <th>Địa chỉ</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="studio : ${studios}">
+              <td th:text="${studio.id}"></td>
+              <td th:text="${studio.name}"></td>
+              <td th:text="${studio.address}"></td>
+             <td>
+                <button th:data-country-id="${studio.id}" data-bs-toggle="modal" data-bs-target="#ModalEditUser">Edit</button>
+              </td>
+	              <form action="./studio/delete" method = "POST">
+	                <td><input type = "submit" name ="delete" value="delete"></td>
+	                <td><input type="hidden" name="id" th:value="${studio.id}"></td>
+	              </form>
+            </tr>
+			
+          </tbody>
+        </table>
+      </div>
+      <div class="change-table-place">
+        <p class="back-place">
+          <span class="back-btn"> <i class="fa fa-angle-left"></i>
+          </span>
+          <p class="back-description"> Trang Trước</p>
+        </p>
+        
+     
+          <p class="forward-description"> Trang sau</p>
+          <span class="forward-btn"> <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="sidebar-container" th:replace="fragments/sidebar :: sidebar">
+
+    </div>
+      <div class="item-container logout-container">
+        <div class="item-icon">
+          <img src="../../../images/userIcon.png" alt="" />
+        </div>
+        <p class="item-description">Sign out</p>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="ModalAddUser"
+      tabindex="-1"
+      aria-labelledby="ModalEditUserLable"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content p-3">
+          <div class="modal-body">
+            <div class="input-group flex-nowrap">
+              <div class="container-fluid">
+                <form action="/admin/studio" method = "POST">
+                <div class="row gy-4 gx-5">
+                  <div class="col-6">
+                    <span class="form-title"> Tên Studio</span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Time" name = "name"
+                      aria-describedby="addon-wrapping"
+                      id="time"
+                    />
+                  </div>
+                  <div class="col-6">
+                    <span class="form-title"> Địa chỉ</span>
+                    <input
+                            type="text"
+                            class="form-control"
+                            aria-label="Time" name = "address"
+                            aria-describedby="addon-wrapping"
+                            id="time"
+                    />
+                  </div>
+                  <div class="col-6"></div>
+                </div>
+
+                  <button
+                          type="submit"
+                          class="btn mt-2 text-white btn-primary"
+                          id="btn_EditUser"
+                          style="border-radius: 10px"
+                  >
+                    Thêm Studio
+                  </button>
+              </form>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4"></div>
+              <div
+                class="col-4"
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+
+              </div>
+              <div class="col-4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div
+            class="modal fade"
+            id="ModalEditUser"
+            tabindex="-1"
+            aria-labelledby="ModalEditUserLable"
+            aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content p-3">
+          <div class="modal-body">
+            <div class="input-group flex-nowrap">
+              <div class="container-fluid">
+                <form action="./studio/edit" method = "POST">
+                  <div class="row gy-4 gx-5">
+                    <div class="col-6">
+                      <span class="form-title"> Tên ngôn ngữ</span>
+                      <input
+                              type="text"
+                              class="form-control"
+                              aria-label="Time" name = "name"
+                              aria-describedby="addon-wrapping"
+                              id="time"
+                      />
+                    </div>
+                    <div class="col-6">
+                      <span class="form-title"> Địa chỉ</span>
+                      <input
+                              type="text"
+                              class="form-control"
+                              aria-label="Time" name = "address"
+                              aria-describedby="addon-wrapping"
+                              id="time"
+                      />
+                    </div>
+                  </div>
+
+                  <input type="hidden" id = "btn_value" name = "btn_value">
+                  <button
+                          type="submit"
+                          class="btn mt-2 text-white btn-primary"
+                          id="btn_EditUser"
+                          style="border-radius: 10px"
+                          name = "btn_2"
+                  >
+                    Sửa studio
+                  </button>
+                </form>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4"></div>
+              <div
+                      class="col-4"
+                      style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+
+              </div>
+              <div class="col-4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <script>
+      // Get references to the search input and button elements
+      const searchInput = document.getElementById('search-input');
+      const searchButton = document.getElementById('search-button');
+
+      // Add a click event listener to the search button
+      searchButton.addEventListener('click', () => {
+        // Get the search query from the input field
+        const query = searchInput.value.trim();
+
+        // Call the function to search and get the studio by name
+        searchStudio(query);
+      });
+
+      // Function to search and get the studio by name
+      function searchStudio(name) {
+        // Get all the studio rows from the table body
+        const studioRows = document.querySelectorAll('#table-content tbody tr');
+
+        // Loop through each studio row and check if the name matches the search query
+        studioRows.forEach(row => {
+          const studioName = row.querySelector('td:nth-child(2)').textContent;
+
+          // Convert both the studio name and search query to lowercase for case-insensitive comparison
+          if (studioName.toLowerCase().includes(name.toLowerCase())) {
+            // Display the matching studio row
+            row.style.display = 'table-row';
+          } else {
+            // Hide the non-matching studio rows
+            row.style.display = 'none';
+          }
+        });
+      }
+      $(document).ready(function() {
+          $('#ModalEditUser').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget);
+            var countryId = button.data('country-id');
+            console.log(countryId);
+            document.getElementById("btn_value").value = countryId;
+          });
+        });
+    </script>
+  </body>
+</html>

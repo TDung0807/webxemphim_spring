@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css%22%3E"
+              integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+        <!-- Font  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+              integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link
+                href="https://fonts.googleapis.com/css2?family=Monoton&family=Poppins:ital,wght@0,100;0,200;0,400;0,700;0,800;0,900;1,300;1,500&display=swap"
+                rel="stylesheet">   <!-- CSS -->
+        <!-- Boxicon  -->
+        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+        <link rel="stylesheet" href="/css/film-inf.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <!-- owl carousel  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarouse2l/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
+        <!------------ shortIcon  -------->
+        <link rel="shortcut icon" href="/images/favicon.jpg">
+        <title>Filmo</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body th:style="'background-image: url(/images/'+${movie.getPoster()}+');'">
+
+
+    <nav class="navbar" th:replace="fragments/header :: header">
+
+    </nav>
+
+
+
+        <div class="film_swap">
+          <figure class="image_film">
+            <img th:src="'/images/'+${movie.getUrlImage()}" alt="">
+          </figure>
+          <div class="film_detail  p-5 rounded" >
+            <h1 class="film_name" th:text="${movie.getName()}">Black-Adam</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="red" class="bi bi-badge-hd-fill HD" viewBox="0 0 18 18" >
+              <path d="M10.53 5.968h-.843v4.06h.843c1.117 0 1.622-.667 1.622-2.02 0-1.354-.51-2.04-1.622-2.04z"/>
+              <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm5.396 3.001V11H6.209V8.43H3.687V11H2.5V5.001h1.187v2.44h2.522V5h1.187zM8.5 11V5.001h2.188c1.824 0 2.685 1.09 2.685 2.984C13.373 9.893 12.5 11 10.69 11H8.5z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#fff" class="bi bi-badge-8k" viewBox="0 0 18 18">
+              <path d="M4.837 11.114c1.406 0 2.333-.725 2.333-1.766 0-.945-.712-1.38-1.256-1.49v-.053c.496-.15 1.02-.55 1.02-1.331 0-.914-.831-1.587-2.084-1.587-1.257 0-2.087.673-2.087 1.587 0 .773.51 1.177 1.02 1.331v.053c-.546.11-1.258.54-1.258 1.494 0 1.042.906 1.762 2.312 1.762zm.013-3.643c-.545 0-.95-.356-.95-.866s.405-.852.95-.852c.545 0 .945.343.945.852 0 .51-.4.866-.945.866zm0 2.786c-.65 0-1.142-.395-1.142-.984S4.2 8.28 4.85 8.28c.646 0 1.143.404 1.143.993s-.497.984-1.143.984zM13.408 5h-1.306L9.835 7.685h-.057V5H8.59v5.998h1.187V9.075l.615-.699 1.679 2.623H13.5l-2.232-3.414L13.408 5z"/>
+              <path d="M14 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z"/>
+            </svg>
+            <div class="gerne">
+                <a th:each="genre : ${movie.getGenres()}" th:href="'/movies/genre/'+${genre.getId()}" th:text="${genre.getName()}"></a>
+            </div>
+            <br>
+     
+            <div class="film_content" th:text="${movie.getDescription()}" style="color: cornsilk">
+                  <p>After being granted with the divine power of the Egyptian Gods and spending almost 5000 years in a guardhouse, Black Adam is freed and he decides to unloose his own style of justice to the world.</p>
+            </div>
+              <input type="hidden" id="movie_id" th:value="${movie.getId()}">
+
+<div class="film_content">
+    <p style="color: red;">  Đánh giá (<span th:text="${movie.getAverageRating()}"></span>/5) </p>
+  <fieldset class="rating" >
+      <input type="radio" id="star5" name="rating" value="5"  /><label class = "full" for="star5" title="Awesome - 5 stars" th:classappend="${movie.getAverageRating() >= 5 ? 'active' : ''}"></label>
+      <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"  th:classappend="${movie.getAverageRating() >= 4.5 ? 'active' : ''}"></label>
+      <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"  th:classappend="${movie.getAverageRating() >= 4 ? 'active' : ''}"></label>
+      <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"  th:classappend="${movie.getAverageRating() >= 3.5 ? 'active' : ''}"></label>
+    <input type="radio" id="star3" name="rating" value="3"   /><label class = "full" for="star3" title="Meh - 3 stars"  th:classappend="${movie.getAverageRating() >= 3 ? 'active' : ''}"></label>
+    <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"  th:classappend="${movie.getAverageRating() >= 2.5 ? 'active' : ''}"></label>
+    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"  th:classappend="${movie.getAverageRating() >= 2 ? 'active' : ''}"></label>
+    <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"  th:classappend="${movie.getAverageRating() >= 1.5 ? 'active' : ''}"></label>
+    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"  th:classappend="${movie.getAverageRating() >= 1 ? 'active' : ''}"></label>
+    <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"  th:classappend="${movie.getAverageRating() >= 0.5 ? 'active' : ''}"></label>
+</fieldset>
+
+</div>
+<br>
+<div class="btn">
+  <button class="btn btn-primary p"  type="button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+      <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+    </svg>
+      <a th:href="'/movies/play/'+${movie.getId()}+'?tap=1'">  <span>Play Now</span></a>
+  </button>
+
+  <button class="btn btn-primary" type="button"data-toggle="modal" data-target="#trailer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+      <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+    </svg>
+    <span>Trailer</span>
+  </button>
+
+
+<button  type="button"   id="savefilm" style="background-color: black;" class="btn btn-dark" >
+  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-save" viewBox="0 0 16 16">
+    <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
+  </svg>
+
+  
+</button>
+</div>
+        <br>
+
+      
+          </div>
+        </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="trailer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Trailer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" th:src="${movie.getUrlTrailer()}" allowfullscreen></iframe>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- The Modal -->
+
+<div th:replace="fragments/recommend :: recommend"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script th:src="@{/js/ratingandsave.js}">
+    </script>
+        <script src="/js/app.js"></script>
+    </body>
+</html>

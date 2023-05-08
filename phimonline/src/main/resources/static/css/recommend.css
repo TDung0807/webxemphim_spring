@@ -1,0 +1,150 @@
+/*----------- Movies Cards -----------*/
+.heading {
+    max-width: 90%;
+    color: #ffffff;
+    margin: 20px auto;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid red;
+    padding-top: 50px;
+}
+
+.movies-container {
+    max-width: 90%;
+    margin: auto;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, auto)); */
+    gap: 1rem;
+    margin-top: 1rem;
+    display: flex;
+}
+
+.coming-container.swiper {
+    gap: 1rem;
+}
+
+.coming-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, auto));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+
+.box .box-img {
+    /* height: 270px;
+    width: 100%; */
+    position: relative;
+    max-height: 600px;
+    max-width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.box .box-img img {
+    /* width: 100%; */
+    height: 100%;
+    aspect-ratio: 10/16;
+    /* object-fit: contain; */
+}
+.box:nth-child(7n+1) {
+    clear: left;
+}
+.box a {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: block;
+    width: 170px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.box span {
+    color: #ffffff;
+    font-size: 13px;
+
+}
+
+/* .box .box-img {
+    position: relative;
+    height: 270px;
+    width: 100%;
+} */
+
+.box:hover img {
+    filter: brightness(0.6);
+    cursor: pointer;
+}
+
+.box .box-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+}
+
+.box:hover .box-overlay {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.box .box-overlay i {
+    font-size: 3rem;
+    color: rgb(228, 44, 44);
+    transition: transform 0.2s ease-in-out;
+}
+
+.box:hover .box-overlay i {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .movies-container {
+        max-width: 88%;
+        margin: auto;
+        /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, auto)); */
+        gap: 1rem;
+        margin-top: 1rem;
+        display: flex;
+    }
+
+    .heading {
+        max-width: 88%;
+        color: #ffffff;
+        margin: 20px auto;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        border-bottom: 1px solid red;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .movies-container {
+        max-width: 88%;
+        margin: auto;
+        /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, auto)); */
+        gap: 1rem;
+        margin-top: 1rem;
+        display: flex;
+    }
+
+    .heading {
+        max-width: 88%;
+        color: #ffffff;
+        margin: 20px auto;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        border-bottom: 1px solid red;
+    }
+}
+
