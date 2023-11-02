@@ -7,7 +7,7 @@ Bước 2: Chạy Code
 	- Sử dụng trình soạn code như eclipse, inteilij, ...
 	- Chọn run as Spring boot app
 	- Sau khi chạy thành công, sử dụng các url sau để tới các trang dẫn:
-	- Đăng nhập bằng tài khoản: ling123@gmail.com / ling1206	
+	- Đăng nhập bằng tài khoản: tạo trong dtb	
 		+localhost:8080/admin/film: trang admin chính
 		+localhost:8080/home: trang film chính
 		+localhost:8080/profile: trang thông tin cá nhân
